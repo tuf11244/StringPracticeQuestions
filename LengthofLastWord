@@ -1,0 +1,22 @@
+//https://leetcode.com/problems/length-of-last-word/
+public class Main
+{
+	public static void main(String[] args) {
+		System.out.println("Hello World");
+		String input = "my name is Parth";
+		System.out.println(lengthoflastword(input));
+	}
+	public static int lengthoflastword(String input){
+	    int count = 0;
+	    for(int i = input.length() -1; i >= 0; i--){
+	        char ch = input.charAt(i);
+	        if(ch!=' '){
+	            count = count+1;
+	        }
+	        if(ch == ' '){
+	            break;
+	        }
+	    }
+	    return count;
+	}
+}
