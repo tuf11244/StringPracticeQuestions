@@ -5,21 +5,13 @@ public class Main {
         System.out.println(maxRepeating("ababababc","ab"));
         
     }
-    public static int maxRepeating(String subsequence,String word){
+    public static int maxRepeating(String sequence,String word){
         int count = 0;
-        int countleft = 0;
-        if(subsequence.length() == 0){
-            return 0;
+        StringBuilder sb = new StringBuilder(word);
+        while (sequence.contains(sb)) {
+            count++;
+            sb.append(word);
         }
-        for(int i = 0; i < subsequence.length();i++){
-            String prefix = subsequence.substring(0,i+1);
-            String remaining = subsequence.substring(i+1);
-            if(prefix.equals(word)){
-                count = count + 1;
-            }
-        }
-        countleft = maxRepeating(subsequence.substring(1),word);
-        return count + countleft;
-    }
-       
-    }
+        return count;
+    }    
+}
