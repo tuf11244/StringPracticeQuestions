@@ -1,0 +1,39 @@
+//https://leetcode.com/problems/valid-palindrome-ii/
+public class Main
+{
+	public static void main(String[] args) {
+		System.out.println("Hello World");
+		System.out.println(validPalindromeII("abca"));
+	
+	}
+	public static boolean validPalindromeII(String s){
+	   int start = 0;
+	   int end = s.length()-1;
+	   while(start <= end){
+	       if(s.charAt(start) == s.charAt(end)){
+	           start++;
+	           end--;
+	       }else{
+	           return isPalindrome(s,start+1,end) || isPalindrome(s,start,end-1);
+	       }
+	       
+	       if(start > end){
+	           return true;
+	       }
+	   }
+	   return false;
+	}
+	public static boolean isPalindrome(String s, int start, int end){
+	    while(start <= end){
+	        if(s.charAt(start) == s.charAt(end)){
+	            start++;
+	            end--;
+	        }
+	        if(start > end){
+	            return true;
+	        }
+	    }
+	    return false;
+	}
+	
+}
