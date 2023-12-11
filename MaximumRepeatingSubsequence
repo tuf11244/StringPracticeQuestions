@@ -1,0 +1,25 @@
+//https://leetcode.com/problems/maximum-repeating-substring/
+public class Main {
+    public static void main(String[] args) {
+        System.out.println("Hello World");
+        System.out.println(maxRepeating("ababababc","ab"));
+        
+    }
+    public static int maxRepeating(String subsequence,String word){
+        int count = 0;
+        int countleft = 0;
+        if(subsequence.length() == 0){
+            return 0;
+        }
+        for(int i = 0; i < subsequence.length();i++){
+            String prefix = subsequence.substring(0,i+1);
+            String remaining = subsequence.substring(i+1);
+            if(prefix.equals(word)){
+                count = count + 1;
+            }
+        }
+        countleft = maxRepeating(subsequence.substring(1),word);
+        return count + countleft;
+    }
+       
+    }
