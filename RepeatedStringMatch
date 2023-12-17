@@ -1,0 +1,20 @@
+//https://leetcode.com/problems/repeated-string-match/
+public class Main {
+    public static void main(String[] args) {
+        System.out.println("Hello World");
+        System.out.println(repeatedStringMatch("abc", "cabcabca"));
+    }
+
+    public static int repeatedStringMatch(String a, String b){
+        String copyA = a;
+        int count = 1;
+        while(a.length() <= Math.pow(10,4)){
+            if(a.contains(b)){
+                return count;
+            }
+            a = a + copyA;
+            count++;
+        }
+        return -1;
+    }
+}
