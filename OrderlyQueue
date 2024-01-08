@@ -1,0 +1,41 @@
+//https://leetcode.com/problems/orderly-queue/
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Collections;
+public class Main
+{
+	public static void main(String[] args) {
+		System.out.println("Hello World");
+	    System.out.println(orderlyqueue("cba",1));
+	}
+	public static String orderlyqueue(String s, int k){
+	    /*Logic
+	     1. if k = 1, you have to rotate first character piece by piece until you reach the last String 
+	        Add all the string in list and sort the list and return the first element 
+	     2. if k > 1 ; you just have to sort the String and return it */
+	    
+	    //if K is greater than 1 we just need to sort the String and return it 
+	    if(k > 1){
+	        char ch[] = s.toCharArray();
+	        Arrays.sort(ch);
+	        String result = "";
+	        for(int i = 0; i < ch.length;i++){
+	            result = result + ch[i];
+	        }
+	        return result;
+	    }
+	    
+	    //if k = 1
+	    List<String> list = new ArrayList<>();
+	    for(int i = 0; i < s.length();i++){
+	        String temp = s.substring(i) + s.substring(0,i);
+	        list.add(temp);
+	    }
+	    Collections.sort(list);
+	    
+	    return list.get(0);
+	}
+
+
+}
